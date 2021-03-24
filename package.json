@@ -1,0 +1,7 @@
+{
+  "name": "ntmoney",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Eymard Neto <francisco.eymard.oliveira@gmail.com>",
+  "license": "MIT"
+}
