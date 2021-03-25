@@ -10,6 +10,11 @@ module.exports = {
 
   resolve: ['.js','.jsx','.ts','.tsx'],
 
+  devServer: {
+    contentBase: path.resolve(__dirname,'public'),
+    hot: true
+  },
+
   module: {
     rules: [
       {
@@ -18,6 +23,11 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.scss$/,
+        exclude: '/node_modules/',
+        use: ['style-loader','css-loader','sass-loader']
       }
     ]
   }
