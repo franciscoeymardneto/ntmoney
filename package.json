@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Eymard Neto <francisco.eymard.oliveira@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "cross-env NODE_ENV=production webpack"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
