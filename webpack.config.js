@@ -7,7 +7,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 module.exports = {
   mode: isDevelopment ? 'development' : 'producttion',
 
-  entry: path.resolve(__dirname,'src/index.ts'),
+  entry: path.resolve(__dirname,'src/index.tsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -34,7 +34,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|ts)$/,
+        test: /\.(ts|tsx)$/,
         exclude: '/node_modules/',
         use: {
           loader: 'babel-loader',
