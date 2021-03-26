@@ -1,10 +1,11 @@
 import { GlobalStyle } from "./assets/styles/global";
+import { Header } from "./components/Header";
 
 export function App() {
   return (
-    <div>
-      <h1>É noix!</h1>
+    <>
+      <Header/>
       <GlobalStyle/>
-    </div>
+    </>
   )
 }
