@@ -6,7 +6,8 @@ import outcomeImg from '../../assets/outcome.svg'
 import { Form, RadioBox, TransactionTypeContainer} from './styles';
 
 import closeImage from '../../assets/close.svg'
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
+import { api } from '../../services/api';
 interface NewTransactionsModal {
   isOpen: boolean
   onRequestClose: () => void
@@ -15,6 +16,23 @@ interface NewTransactionsModal {
 export function NewTransactionsModal(props: NewTransactionsModal) {
   const { isOpen, onRequestClose } = props
   const [type, setType] = useState('deposit')
+  const [title, setTitle] = useState('')
+  const [category, setCategory] = useState('')
+  const [value, setValue] = useState(0)
+
+
+  function handleCreateNewTransaction(event: FormEvent) {
+    event.preventDefault()
+
+    const data = {
+      title,
+      value,
+      category,
+      type
+    }
+
+    api.post('/transactions',data)
+  }
   return (
     <Modal
       isOpen={isOpen}
@@ -29,20 +47,26 @@ export function NewTransactionsModal(props: NewTransactionsModal) {
       >
         <img src={closeImage} alt='close modal'/>
       </button>
-      <Form >
+      <Form onSubmit={handleCreateNewTransaction}>
         <h2>Add Transaction</h2>
 
         <input 
           placeholder='Title'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
 
         <input 
           type='number'
           placeholder='Amount'
+          value={value}
+          onChange={(e) => setValue(Number(e.target.value))}
         />
 
         <input 
           placeholder='Category'
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
         />
 
         <TransactionTypeContainer>
