@@ -57,9 +57,14 @@ export const TransactionTypeContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+`
 
-  button {
-    height: 4rem;
+interface RadioBoxProps {
+  isActive: boolean;
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
+   height: 4rem;
     border: 1px solid var(--input-border);
     border-radius: 0.25rem;
 
@@ -85,5 +90,4 @@ export const TransactionTypeContainer = styled.div`
     &:hover{
       filter: brightness(0.9)
     }
-  }
 `
