@@ -6,7 +6,7 @@ import  Modal  from 'react-modal'
 
 import { useState } from 'react';
 import { NewTransactionsModal } from './components/NewTransactionsModal';
-import { TransactionProvider } from './Contexts/TransactionsContext';
+import { TransactionProvider } from './hooks/useTransactions';
 
 Modal.setAppElement('#root')
 
