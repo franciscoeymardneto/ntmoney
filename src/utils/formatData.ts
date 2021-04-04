@@ -1,0 +1,1 @@
+export const { format: formatData } = new Intl.DateTimeFormat('en-US')

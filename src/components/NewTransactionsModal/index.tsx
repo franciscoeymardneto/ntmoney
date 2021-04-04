@@ -18,7 +18,7 @@ export function NewTransactionsModal(props: NewTransactionsModal) {
   const [type, setType] = useState('deposit')
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState('')
-  const [value, setValue] = useState(0)
+  const [amount, setAmount] = useState(0)
 
 
   function handleCreateNewTransaction(event: FormEvent) {
@@ -26,9 +26,10 @@ export function NewTransactionsModal(props: NewTransactionsModal) {
 
     const data = {
       title,
-      value,
+      amount,
       category,
-      type
+      type,
+      createdAt: new Date()
     }
 
     api.post('/transactions',data)
@@ -53,18 +54,20 @@ export function NewTransactionsModal(props: NewTransactionsModal) {
         <input 
           placeholder='Title'
           value={title}
+          required
           onChange={(e) => setTitle(e.target.value)}
         />
 
         <input 
           type='number'
           placeholder='Amount'
-          value={value}
-          onChange={(e) => setValue(Number(e.target.value))}
+          value={amount}
+          onChange={(e) => setAmount(Number(e.target.value))}
         />
 
         <input 
           placeholder='Category'
+          required
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         />
